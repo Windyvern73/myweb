@@ -1,8 +1,8 @@
 version: 1
 project:
-  title: Website Title
-  # authors:
-  #   - name: Author Name
+  title: William Chang
+   authors:
+     - name: William Chang
   copyright: '2026'
   exclude:
     - _build
@@ -16,10 +16,10 @@ project:
     - CONDUCT.md
     - CONTRIBUTING.md
     - README.md
-  github: opengeos/myst-website-template
+  github: Windyvern73/myweb
   thebe:
     binder:
-      repo: opengeos/myst-website-template
+      repo: Windyvern73/myweb
       provider: github
       url: https://mybinder.org
       ref: main
@@ -54,7 +54,7 @@ site:
     # analytics_google: G-XXX
   actions:
     - title: RSS
-      url: https://opengeos.org/myst-website-template/rss.xml
+      url: https://windyvern73.github.io/myweb/rss.xml
   template: book-theme
   parts:
     primary_sidebar_footer: ''
