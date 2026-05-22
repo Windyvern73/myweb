@@ -1,8 +1,8 @@
 version: 1
 project:
   title: William Chang
-   authors:
-     - name: William Chang
+  authors:
+    - name: William Chang
   copyright: '2026'
   exclude:
     - _build
