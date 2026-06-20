@@ -1,0 +1,398 @@
+/*
+  experience-detail.css
+  Place in your css/ folder and link in experience-detail.html:
+    <link href="css/experience-detail.css" rel="stylesheet">
+
+  Inherits CSS variables from templatemo-topic-listing.css.
+*/
+
+
+/* ═══════════════════════════════════════
+   HERO BANNER
+═══════════════════════════════════════ */
+.ed-hero {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+/* Background photo */
+.ed-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+/* Gradient overlay — same 15 deg angle as the rest of the site */
+.ed-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  opacity: 0.82;
+  z-index: 1;
+}
+
+/* Text sits above the overlay */
+.ed-hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 140px;   /* clears navbar */
+  padding-bottom: 60px;
+}
+
+.ed-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.75);
+  font-family: var(--title-font-family);
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 0.2s;
+}
+.ed-back-link:hover { color: #ffffff; }
+
+.ed-hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.45);
+  color: #ffffff;
+  font-family: var(--title-font-family);
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  border-radius: var(--border-radius-large);
+  margin-bottom: 16px;
+}
+
+.ed-hero-title {
+  font-family: var(--title-font-family);
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: var(--font-weight-bold);
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.15;
+}
+
+.ed-hero-org {
+  font-family: var(--title-font-family);
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 16px;
+}
+
+.ed-hero-tagline {
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  color: rgba(255,255,255,0.88);
+  max-width: 640px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+
+/* ═══════════════════════════════════════
+   SHARED SECTION HEADING
+═══════════════════════════════════════ */
+.ed-section-title {
+  font-family: var(--title-font-family);
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.ed-section-bar {
+  width: 52px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.ed-section-bar--white {
+  background: rgba(255,255,255,0.5);
+}
+
+.ed-body-text {
+  font-family: var(--body-font-family);
+  font-size: 17px;
+  color: var(--p-color);
+  line-height: 1.8;
+}
+
+
+/* ═══════════════════════════════════════
+   QUICK-STAT CARDS
+═══════════════════════════════════════ */
+.ed-stat-card {
+  background: var(--white-color);
+  border: 1px solid #d6eff0;
+  border-radius: var(--border-radius-medium);
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 3px 14px rgba(19,84,122,0.08);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.ed-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(19,84,122,0.14);
+}
+
+.ed-stat-number {
+  font-family: var(--title-font-family);
+  font-size: 36px;
+  font-weight: var(--font-weight-bold);
+  /* Gradient text — the site's signature colour pair */
+  background: linear-gradient(15deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.ed-stat-label {
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  color: var(--p-color);
+  text-align: center;
+}
+
+
+/* ═══════════════════════════════════════
+   GALLERY SECTION
+═══════════════════════════════════════ */
+.ed-gallery {
+  background-color: var(--section-bg-color);   /* #f0f8ff */
+}
+
+/* Base photo card */
+.ed-photo-card {
+  position: relative;
+  border-radius: var(--border-radius-medium);
+  overflow: hidden;
+  height: 240px;
+  box-shadow: 0 4px 18px rgba(19,84,122,0.10);
+  /* Gradient fallback if image is missing */
+  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+
+/* Taller variant for the wide card */
+.ed-photo-card--tall {
+  height: 360px;
+}
+
+.ed-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.ed-photo-card:hover .ed-photo-img {
+  transform: scale(1.05);
+}
+
+/* Caption — slides up on hover */
+.ed-photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(19,84,122,0.88) 0%, transparent 100%);
+  padding: 36px 20px 18px;
+  transform: translateY(100%);
+  transition: transform 0.35s ease;
+}
+
+.ed-photo-card:hover .ed-photo-caption {
+  transform: translateY(0);
+}
+
+.ed-photo-caption p {
+  color: #ffffff;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+
+/* ═══════════════════════════════════════
+   MILESTONES / HIGHLIGHTS
+═══════════════════════════════════════ */
+.ed-milestones {
+  background-color: var(--white-color);
+}
+
+.ed-milestone {
+  background: var(--white-color);
+  border: 1px solid #d6eff0;
+  border-radius: var(--border-radius-medium);
+  padding: 28px 24px;
+  height: 100%;
+  box-shadow: 0 3px 14px rgba(19,84,122,0.07);
+  transition: all 0.3s ease;
+}
+
+.ed-milestone:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(19,84,122,0.15);
+}
+
+.ed-milestone-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(15deg, var(--primary-color), var(--secondary-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.ed-milestone-icon i {
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.ed-milestone-title {
+  font-family: var(--title-font-family);
+  font-size: 18px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.ed-milestone:hover .ed-milestone-title,
+.ed-milestone:hover .ed-milestone-desc {
+  color: var(--primary-color);
+}
+
+.ed-milestone-desc {
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: var(--p-color);
+  line-height: 1.7;
+  margin: 0;
+}
+
+
+/* ═══════════════════════════════════════
+   LINKS SECTION  (dark gradient bg)
+═══════════════════════════════════════ */
+.ed-links-section {
+  position: relative;
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+
+.ed-links-section .ed-section-title {
+  color: #ffffff;
+}
+
+/* Each link card */
+.ed-link-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: var(--border-radius-medium);
+  padding: 22px 20px;
+  text-decoration: none;
+  transition: background 0.25s, transform 0.25s;
+  height: 100%;
+}
+
+.ed-link-card:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-3px);
+}
+
+.ed-link-icon {
+  font-size: 28px;
+  color: #ffffff;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ed-link-title {
+  font-family: var(--title-font-family);
+  font-size: 16px;
+  font-weight: var(--font-weight-semibold);
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.ed-link-desc {
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ed-link-arrow {
+  font-size: 18px;
+  color: rgba(255,255,255,0.6);
+  margin-left: auto;
+  flex-shrink: 0;
+  align-self: center;
+  transition: transform 0.2s;
+}
+
+.ed-link-card:hover .ed-link-arrow {
+  transform: translate(3px, -3px);
+  color: #ffffff;
+}
+
+
+/* ═══════════════════════════════════════
+   FOOTER NAV BAR
+═══════════════════════════════════════ */
+.ed-footer-nav {
+  padding: 40px 0;
+  background-color: var(--section-bg-color);
+}
+
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media screen and (max-width: 991px) {
+  .ed-hero { min-height: 380px; }
+
+  .ed-section-title { font-size: 28px; }
+
+  .ed-photo-card--tall { height: 280px; }
+  .ed-photo-card       { height: 220px; }
+}
+
+@media screen and (max-width: 576px) {
+  .ed-hero-content { padding-bottom: 40px; }
+
+  .ed-photo-card--tall,
+  .ed-photo-card { height: 220px; }
+
+  .ed-stat-number { font-size: 28px; }
+
+  /* Always show caption on touch (no hover) */
+  .ed-photo-caption { transform: translateY(0); }
+}

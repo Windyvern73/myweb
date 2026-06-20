@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CU Airplane Club — William Chang">
+  <meta name="author" content="William Chang">
+  <title>CU Airplane Club — William Chang</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/main-page.css" rel="stylesheet">
+  <link rel="icon" href="fav.ico" type="image/x-icon">
+
+  <style>
+    /* ══════════════════════════════════
+       BASE
+    ══════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sky:    #d6eaf8;
+      --deep:   #0d1f35;
+      --navy:   #1a3a5c;
+      --amber:  #c8923a;
+      --cream:  #fdf6e3;
+      --paper:  #f5ead0;
+      --muted:  #6b7a8d;
+      --radius: 4px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--deep);
+      overflow-x: hidden;
+    }
+
+    h1,h2,h3,h4,h5 {
+      font-family: 'Special Elite', cursive;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Navbar ── */
+    .navbar {
+      background-color: var(--deep) !important;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+    }
+    .navbar .navbar-brand span { color: var(--amber) !important; }
+
+    /* ══════════════════════════════════
+       HERO
+    ══════════════════════════════════ */
+    .ap-hero {
+      position: relative;
+      min-height: 500px;
+      background: 
+        radial-gradient(1.5px 1.5px at 12% 17%, white 100%, transparent),
+        radial-gradient(1.5px 1.5px at 28% 18%,  white 100%, transparent),
+        radial-gradient(2px   2px   at 43% 20%, white 100%, transparent),
+        radial-gradient(1px   1px   at 55% 23%,  white 100%, transparent),
+        radial-gradient(1.5px 1.5px at 67% 18%, white 100%, transparent),
+        radial-gradient(1px   1px   at 76% 20%, white 100%, transparent),
+        radial-gradient(1.5px 1.5px at 88% 22%, white 100%, transparent),
+        radial-gradient(1px   1px   at 33% 28%, white 100%, transparent),
+        radial-gradient(1.5px 1.5px at 91% 21%,  white 100%, transparent),
+        radial-gradient(1px   1px   at 19% 25%, white 100%, transparent),
+        radial-gradient(1px   1px   at 60% 25%, white 100%, transparent),
+        radial-gradient(1px   1px   at 80% 30%, white 100%, transparent),
+        linear-gradient(180deg, #0d1f35 0%, #1a3a5c 45%, #2e6b9e 75%, #d6eaf8 100%);
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding-top: 70px;
+    }
+
+    /* Animated clouds */
+    .ap-clouds {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .ap-cloud {
+      position: absolute;
+      background: rgba(255,255,255,0.18);
+      border-radius: 50px;
+      filter: blur(2px);
+    }
+    .ap-cloud::before, .ap-cloud::after {
+      content: "";
+      position: absolute;
+      background: inherit;
+      border-radius: 50%;
+    }
+    /* Cloud 1 */
+    .ap-cloud--1 { width:180px; height:40px; top:22%; left:-200px; animation: drift 18s linear infinite; }
+    .ap-cloud--1::before { width:70px; height:60px; top:-30px; left:20px; }
+    .ap-cloud--1::after  { width:50px; height:45px; top:-20px; left:80px; }
+    /* Cloud 2 */
+    .ap-cloud--2 { width:130px; height:30px; top:38%; left:-160px; animation: drift 24s linear infinite 6s; opacity:0.7; }
+    .ap-cloud--2::before { width:55px; height:50px; top:-25px; left:15px; }
+    .ap-cloud--2::after  { width:40px; height:38px; top:-18px; left:65px; }
+    /* Cloud 3 */
+    .ap-cloud--3 { width:200px; height:45px; top:55%; left:-240px; animation: drift 20s linear infinite 3s; opacity:0.5; }
+    .ap-cloud--3::before { width:80px; height:65px; top:-32px; left:25px; }
+    .ap-cloud--3::after  { width:60px; height:52px; top:-22px; left:95px; }
+
+    @keyframes drift {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(calc(100vw + 260px)); }
+    }
+
+    /* Cartoon plane + flight path */
+    .ap-hero-plane {
+      position: absolute;
+      z-index: 3;
+      top: 20%;
+      left: -120px;
+      animation: flyin 3.5s cubic-bezier(0.22,0.61,0.36,1) forwards 0.4s;
+    }
+    @keyframes flyin {
+      0%   { left: -120px; top: 20%; }
+      100%  { left: 60%;    top: 26%; }
+    }
+
+    /* Hero text */
+    .ap-hero-content {
+      position: relative;
+      z-index: 4;
+      padding: 36px 0 56px;
+    }
+
+    .ap-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.6);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      margin-bottom: 16px;
+      transition: color 0.2s;
+    }
+    .ap-back-link:hover { color: var(--amber); }
+
+    .ap-hero-badge {
+      display: block;
+      width: fit-content;
+      border: 1.5px solid var(--amber);
+      color: var(--amber);
+      font-family: 'Special Elite', cursive;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+
+    .ap-hero-title {
+      font-size: clamp(30px, 5.5vw, 56px);
+      color: #ffffff;
+      line-height: 1.05;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .ap-hero-org {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    .ap-hero-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      color: rgba(255,255,255,0.85);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════
+       DESCRIPTION SECTION
+       Paper / logbook aesthetic
+    ══════════════════════════════════ */
+    .ap-about {
+      background: var(--cream);
+      padding: 80px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Faint ruled lines like notebook paper */
+    .ap-about::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        transparent,
+        transparent 31px,
+        rgba(180,160,100,0.15) 31px,
+        rgba(180,160,100,0.15) 32px
+      );
+      pointer-events: none;
+    }
+
+    .ap-about > .container { position: relative; z-index: 1; }
+
+    .ap-eyebrow {
+      font-family: 'Special Elite', cursive;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 10px;
+    }
+
+    .ap-section-title {
+      font-size: 30px;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .ap-rule {
+      width: 48px;
+      height: 3px;
+      background: var(--amber);
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .ap-body {
+      font-size: 16px;
+      color: #3a4a5c;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    /* Spec pills */
+    .ap-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .ap-spec {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--paper);
+      border: 1px solid rgba(200,146,58,0.35);
+      border-radius: 3px;
+      padding: 8px 16px;
+      font-family: 'Special Elite', cursive;
+      font-size: 13px;
+      color: var(--navy);
+    }
+    .ap-spec i { color: var(--amber); font-size: 15px; }
+
+    /* Side compass decoration */
+    .ap-compass-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 0;
+    }
+
+    /* ══════════════════════════════════
+       FILM PHOTO GALLERY
+    ══════════════════════════════════ */
+    .ap-gallery {
+      background: var(--deep);
+      padding: 72px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle grain texture overlay */
+    .ap-gallery::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.35;
+    }
+
+    .ap-gallery > .container { position: relative; z-index: 1; }
+
+    .ap-gallery .ap-eyebrow { color: var(--amber); }
+    .ap-gallery .ap-section-title { color: #ffffff; }
+    .ap-gallery .ap-rule { background: var(--amber); }
+
+    /* ── Film strip card ── */
+    .ap-film-card {
+      position: relative;
+      display: block;
+    }
+
+    /* The film strip frame itself */
+    .ap-film-frame {
+      background: #111111;
+      border-radius: 3px;
+      padding: 12px 28px;   /* left/right space for sprocket holes */
+      position: relative;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      /* Slight random tilt — different for each card via inline style */
+    }
+
+    /* Sprocket holes — punched down left and right edges */
+    .ap-film-frame::before,
+    .ap-film-frame::after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      width: 18px;
+      background-image: radial-gradient(circle, #2a2a2a 5px, transparent 5px);
+      background-size: 18px 22px;
+      background-repeat: repeat-y;
+      background-position: center top;
+    }
+    .ap-film-frame::before { left: 5px; }
+    .ap-film-frame::after  { right: 5px; }
+
+    /* The photo inside the film frame */
+    .ap-film-img-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1px;
+      /* Sepia-toned vignette */
+    }
+    .ap-film-img-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at center, transparent 55%, rgba(20,10,0,0.55) 100%);
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    .ap-film-img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      object-position: center;
+      filter: sepia(25%) contrast(1.05) brightness(0.95);
+      transition: filter 0.4s ease, transform 0.4s ease;
+      /* Gradient fallback */
+      background: linear-gradient(135deg, #1a3a5c, #2e6b9e);
+    }
+    .ap-film-card:hover .ap-film-img {
+      filter: sepia(0%) contrast(1.08) brightness(1.02);
+      transform: scale(1.03);
+    }
+
+    /* Caption below film frame */
+    .ap-film-caption {
+      margin-top: 10px;
+      padding: 0 6px;
+      font-family: 'Special Elite', cursive;
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* ══════════════════════════════════
+       HIGHLIGHTS
+    ══════════════════════════════════ */
+    .ap-highlights {
+      background: var(--paper);
+      padding: 72px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Blueprint grid in the background */
+    .ap-highlights::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(26,58,92,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26,58,92,0.06) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+
+    .ap-highlights > .container { position: relative; z-index: 1; }
+
+    .ap-highlight-card {
+      background: #ffffff;
+      border-radius: 4px;
+      border-top: 3px solid var(--amber);
+      padding: 28px 24px;
+      height: 100%;
+      box-shadow: 2px 4px 16px rgba(26,58,92,0.08);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .ap-highlight-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 4px 10px 28px rgba(26,58,92,0.14);
+    }
+
+    .ap-highlight-icon {
+      font-size: 28px;
+      color: var(--amber);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .ap-highlight-title {
+      font-size: 18px;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .ap-highlight-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ══════════════════════════════════
+       FOOTER NAV
+    ══════════════════════════════════ */
+    .ap-footer {
+      background: var(--deep);
+      padding: 36px 0;
+      text-align: center;
+    }
+    .ap-footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .ap-footer-link:hover { color: var(--amber); }
+
+    /* ══════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════ */
+    @media (max-width: 768px) {
+      .ap-hero { min-height: 420px; }
+      .ap-film-frame { padding: 10px 22px; }
+      .ap-film-frame::before,
+      .ap-film-frame::after { width: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navbar ── -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="logo.png" alt="logo" width="30px">
+      <span>William Chang</span>
+    </a>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════
+     HERO
+══════════════════════════════════ -->
+<section class="ap-hero">
+
+  <!-- Drifting clouds -->
+  <div class="ap-clouds">
+    <div class="ap-cloud ap-cloud--1"></div>
+    <div class="ap-cloud ap-cloud--2"></div>
+    <div class="ap-cloud ap-cloud--3"></div>
+  </div>
+
+
+  <!-- Cartoon plane -->
+  <div class="ap-hero-plane">
+    <img src="images/CUAC/plane.png" alt="Airplane" style="width: 250px;">
+  </div>
+
+  <div class="container ap-hero-content">
+    <a href="index.html#section_experience" class="ap-back-link">
+      <i class="bi-arrow-left"></i> Back to Experience
+    </a>
+    <span class="ap-hero-badge">✈ Engineering · Sept 2025 – Present</span>
+    <h1 class="ap-hero-title">Electrical &amp; Mechanical<br>Designer</h1>
+    <p class="ap-hero-org">CU Airplane Club — AIAA Competition Team · New York, NY</p>
+    <p class="ap-hero-tagline">
+      Designing and building motor-powered components for Columbia's AIAA competition plane —
+      from CAD models in Fusion360 to physical mechanisms on the airframe.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════
+     DESCRIPTION
+══════════════════════════════════ -->
+<section class="ap-about">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <div class="col-lg-7">
+        <p class="ap-eyebrow">Field Notes</p>
+        <h2 class="ap-section-title">Building for the AIAA Competition</h2>
+        <div class="ap-rule"></div>
+
+        <p class="ap-body">
+          As an Electrical and Mechanical Designer for the CU Airplane Club, I design and
+          fabricate components for Columbia's entry in the AIAA Design/Build/Fly competition —
+          one of the most rigorous student aircraft competitions in the country. My work sits
+          at the boundary between mechanical design and embedded electronics, translating
+          competition requirements into physical hardware on the plane.
+        </p>
+        <p class="ap-body">
+          One of my key contributions has been designing a banner release mechanism using
+          Fusion360 — a compact, reliable system that deploys a banner mid-flight as part of
+          the competition scoring mission. I also designed a fuse-holder for the plane's
+          electrical system, ensuring safe and accessible power management for the onboard
+          electronics under flight conditions.
+        </p>
+        <p class="ap-body">
+          Working on a competition aircraft means every component needs to be both light
+          enough to fly and robust enough to survive repeated testing cycles. It's pushed me
+          to think carefully about design trade-offs between weight, strength, and
+          manufacturability — skills that bridge my work in CAD with real hands-on
+          fabrication.
+        </p>
+
+        <div class="ap-specs">
+          <span class="ap-spec"><i class="bi-rulers"></i> Fusion360 CAD</span>
+          <span class="ap-spec"><i class="bi-cpu"></i> Electrical Systems</span>
+          <span class="ap-spec"><i class="bi-trophy"></i> AIAA DBF Competition</span>
+          <span class="ap-spec"><i class="bi-gear"></i> Mechanical Fabrication</span>
+        </div>
+      </div>
+
+      <!-- Cartoon side illustration -->
+      <div class="col-lg-5 d-flex align-items-center justify-content-center">
+        <img src="images/CUAC/plane_design.png" alt="Airplane blueprint"
+          style="width:550px;border-radius:8px;background:#0d1f35;border-radius:8px;padding:20px;">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     FILM PHOTO GALLERY
+══════════════════════════════════ -->
+<section class="ap-gallery">
+  <div class="container">
+
+    <p class="ap-eyebrow">Shots from the Build</p>
+    <h2 class="ap-section-title" style="color:#fff;">Gallery</h2>
+    <div class="ap-rule mb-5"></div>
+
+    <div class="row g-5 justify-content-center">
+
+      <!-- Photo 1 — large, slight counter-clockwise tilt -->
+      <div class="col-lg-5 col-md-6 col-12">
+        <div class="ap-film-card">
+          <div class="ap-film-frame" style="transform: rotate(-1.5deg);">
+            <div class="ap-film-img-wrap">
+              <img src="images/CUAC/banner_deploy.png" alt="Banner release mechanism" class="ap-film-img"
+                   onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#2e6b9e)'">
+            </div>
+          </div>
+          <p class="ap-film-caption">Banner release mechanism — Fusion360 prototype</p>
+        </div>
+      </div>
+
+      <!-- Photo 2 — slight clockwise tilt -->
+      <div class="col-lg-5 col-md-6 col-12">
+        <div class="ap-film-card">
+          <div class="ap-film-frame" style="transform: rotate(1.2deg);">
+            <div class="ap-film-img-wrap">
+              <img src="images/CUAC/Fuse_holder.png" alt="Fuse holder design" class="ap-film-img"
+                   onerror="this.style.background='linear-gradient(135deg,#0d3a2a,#1a6b4e)'">
+            </div>
+          </div>
+          <p class="ap-film-caption">Fuse-holder assembly for the onboard electrical system</p>
+        </div>
+      </div>
+
+      <!-- Photo 3 — counter tilt -->
+      <div class="col-lg-5 col-md-6 col-12">
+        <div class="ap-film-card">
+          <div class="ap-film-frame" style="transform: rotate(-0.8deg);">
+            <div class="ap-film-img-wrap">
+              <img src="images/CUAC/comp.png" alt="Full airframe" class="ap-film-img"
+                   onerror="this.style.background='linear-gradient(135deg,#2a1a0d,#6b3a1a)'">
+            </div>
+          </div>
+          <p class="ap-film-caption">Preparing full airframe for competition inspection</p>
+        </div>
+      </div>
+
+      <!-- Photo 4 — slight clockwise -->
+      <div class="col-lg-5 col-md-6 col-12">
+        <div class="ap-film-card">
+          <div class="ap-film-frame" style="transform: rotate(2deg);">
+            <div class="ap-film-img-wrap">
+              <img src="images/CUAC/group_photo.JPG" alt="CAD model" class="ap-film-img"
+                   onerror="this.style.background='linear-gradient(135deg,#1a0d2a,#4e1a6b)'">
+            </div>
+          </div>
+          <p class="ap-film-caption">Our team at competition</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     HIGHLIGHTS
+══════════════════════════════════ -->
+<section class="ap-highlights">
+  <div class="container">
+
+    <p class="ap-eyebrow">Key Contributions</p>
+    <h2 class="ap-section-title">Highlights</h2>
+    <div class="ap-rule mb-5"></div>
+
+    <div class="row g-4">
+
+      <div class="col-lg-4 col-md-6">
+        <div class="ap-highlight-card">
+          <i class="bi-box ap-highlight-icon"></i>
+          <h5 class="ap-highlight-title">Banner Release Mechanism</h5>
+          <p class="ap-highlight-desc">
+            Designed a lightweight, reliable in-flight banner deployment system in Fusion360,
+            meeting AIAA competition scoring requirements while staying within strict weight limits.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="ap-highlight-card">
+          <i class="bi-lightning-charge ap-highlight-icon"></i>
+          <h5 class="ap-highlight-title">Fuse-Holder Design</h5>
+          <p class="ap-highlight-desc">
+            Engineered a compact fuse-holder for the plane's electrical system, prioritising
+            accessibility for field swaps and safety under the vibration loads of flight.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="ap-highlight-card">
+          <i class="bi-bezier2 ap-highlight-icon"></i>
+          <h5 class="ap-highlight-title">CAD to Fabrication</h5>
+          <p class="ap-highlight-desc">
+            Took components from Fusion360 concept to physical build, learning to balance
+            design intent with real manufacturing constraints like material availability
+            and assembly tolerances.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Footer ── -->
+<div class="ap-footer">
+  <a href="index.html#section_experience" class="ap-footer-link">
+    <i class="bi-arrow-left"></i> All Experiences
+  </a>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>

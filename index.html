@@ -1,758 +1,720 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="William Chang — CS student at Columbia University">
+  <meta name="author" content="William Chang">
+  <title>William Chang</title>
 
-        <meta name="description" content="Website detailing William's contacts and activities.">
-        <meta name="author" content="William Chang">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/main-page.css" rel="stylesheet">
+  <link href="css/experience-section.css" rel="stylesheet">
+  <link rel="icon" href="fav.ico" type="image/x-icon">
 
-        <title>William Chang's Personal Website</title>
+  <style>
+    /* ══════════════════════════════════
+       PAGE-LEVEL OVERRIDES & NEW SECTIONS
+    ══════════════════════════════════ */
 
-        <!-- CSS FILES -->        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    /* ── Hero ── */
+    .hero-section {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
 
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
-                        
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+    .hero-portrait {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+    margin: 0 auto 28px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
 
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
+    .hero-name {
+      font-family: var(--title-font-family);
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: var(--font-weight-bold);
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
 
-        <link href="css/templatemo-topic-listing.css" rel="stylesheet">      
-<!--
+    .hero-role {
+      font-family: var(--title-font-family);
+      font-size: 16px;
+      font-weight: var(--font-weight-medium);
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
 
-TemplateMo 590 topic listing
+    .hero-bio {
+      font-family: var(--body-font-family);
+      font-size: 17px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.8;
+      max-width: 520px;
+      margin-bottom: 32px;
+    }
 
-https://templatemo.com/tm-590-topic-listing
+    /* Hero CTA buttons */
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
 
--->
-    </head>
-        <link rel="icon" href="/fav.ico" type="image/x-icon">
-    </head>
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--title-font-family);
+      font-size: 14px;
+      font-weight: var(--font-weight-semibold);
+      padding: 12px 26px;
+      border-radius: var(--border-radius-large);
+      text-decoration: none;
+      transition: all 0.25s;
+    }
 
-    <body id="top">
+    .hero-btn--primary {
+      background: #ffffff;
+      color: var(--primary-color);
+    }
+    .hero-btn--primary:hover {
+      background: var(--secondary-color);
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
 
-        <main>
+    .hero-btn--outline {
+      background: transparent;
+      border: 2px solid rgba(255,255,255,0.55);
+      color: #ffffff;
+    }
+    .hero-btn--outline:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: #ffffff;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
 
-            <nav class="navbar navbar-expand-lg">
-                <div class="container">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="logo.png" alt="logo" width="30px">
-                        <span>William Chang</span>
-                    </a>
-                    <!--
-                    <div class="d-lg-none ms-auto me-4">
-                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
-                    </div>
+    /* Social row */
+    .hero-social {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 20px;
+    }
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                -->
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <!--
-                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_1">About Me</a>
-                            </li>
+    .hero-social-label {
+      font-family: var(--title-font-family);
+      font-size: 12px;
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
 
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_2">Work Experience</a>
-                            </li>
-    
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_3">Projects</a>
-                            </li>
+    .hero-social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #ffffff;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .hero-social-link:hover {
+      background: rgba(255,255,255,0.25);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
 
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_4">Leadership</a>
-                            </li>
-    
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_5">Extracurriculars</a>
-                            </li>
+    /* Right column — contact card */
+    .hero-contact-card {
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 24px;
+      padding: 36px 32px;
+      width: 80%
+    }
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+    .hero-contact-card h4 {
+      font-family: var(--title-font-family);
+      font-size: 20px;
+      font-weight: var(--font-weight-bold);
+      color: #ffffff;
+      margin-bottom: 24px;
+    }
 
-                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="topics-listing.html">Topics Listing</a></li>
+    .hero-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
 
-                                    <li><a class="dropdown-item" href="contact.html">Contact Form</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    
-                        <div class="d-none d-lg-block">
-                            <a href="#top" class="navbar-icon bi-chevron-up smoothscroll"></a>
-                        </div>
-                    -->
-                    </div>
+    .hero-contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--secondary-color);
+      flex-shrink: 0;
+    }
+
+    .hero-contact-label {
+      font-family: var(--title-font-family);
+      font-size: 11px;
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2px;
+    }
+
+    .hero-contact-value {
+      font-family: var(--body-font-family);
+      font-size: 14px;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      transition: color 0.2s;
+      word-break: break-all;
+    }
+    .hero-contact-value:hover { color: var(--secondary-color); }
+
+    /* Divider */
+    .hero-contact-divider {
+      border: none;
+      margin: 24px;
+      width: 24px;
+      height: 2px;
+      color: rgba(255, 255, 255, 0.12)
+    }
+
+    /* ── About / Skills section ── */
+    .about-section {
+      background: #ffffff;
+      padding: 88px 0;
+    }
+
+    .about-section-label {
+      font-family: var(--title-font-family);
+      font-size: 11px;
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+      margin-bottom: 10px;
+    }
+
+    .about-section-title {
+      font-family: var(--title-font-family);
+      font-size: 32px;
+      font-weight: var(--font-weight-bold);
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .about-bar {
+      width: 48px;
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      margin-bottom: 28px;
+    }
+
+    .about-body {
+      font-family: var(--body-font-family);
+      font-size: 16px;
+      color: var(--p-color);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    /* Skill group */
+    .skill-group {
+      margin-bottom: 20px;
+    }
+
+    .skill-group-label {
+      font-family: var(--title-font-family);
+      font-size: 12px;
+      font-weight: var(--font-weight-bold);
+      color: var(--primary-color);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-pill {
+      font-family: var(--title-font-family);
+      font-size: 12px;
+      font-weight: var(--font-weight-medium);
+      color: var(--primary-color);
+      background: #e8f5f3;
+      border: 1px solid var(--secondary-color);
+      border-radius: var(--border-radius-large);
+      padding: 5px 14px;
+      white-space: nowrap;
+    }
+
+    /* Education card */
+    .edu-card {
+      background: var(--section-bg-color);
+      border-radius: 16px;
+      border-left: 4px solid var(--secondary-color);
+      padding: 24px 28px;
+      margin-top: 32px;
+    }
+
+    .edu-card-school {
+      font-family: var(--title-font-family);
+      font-size: 17px;
+      font-weight: var(--font-weight-bold);
+      color: var(--primary-color);
+      margin-bottom: 4px;
+    }
+
+    .edu-card-degree {
+      font-family: var(--body-font-family);
+      font-size: 15px;
+      color: var(--p-color);
+      margin-bottom: 2px;
+    }
+
+    .edu-card-year {
+      font-family: var(--title-font-family);
+      font-size: 12px;
+      font-weight: var(--font-weight-semibold);
+      color: var(--secondary-color);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: var(--primary-color);
+      padding: 40px 0;
+    }
+
+    .site-footer p {
+      font-family: var(--body-font-family);
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      margin: 0;
+      text-align: center;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 991px) {
+      .hero-section { padding-top: 100px; padding-bottom: 60px; min-height: auto; }
+      .hero-contact-card { margin-top: 40px; }
+      .hero-bio { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body id="top">
+<main>
+
+  <!-- ══════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="logo.png" alt="logo" width="30px">
+        <span>William Chang</span>
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════
+       HERO
+  ══════════════════════════════════ -->
+  <section class="hero-section" id="section_1">
+    <div class="container">
+      <div class="row align-items-center g-5">
+
+        <!-- Left — bio and contact -->
+        <div class="col-lg-7 col-12">
+          <img src="images/portrait.png" alt="William Chang"
+               class="hero-portrait d-lg-none">
+
+          <p class="hero-role">CS Student · Columbia University</p>
+          <h1 class="hero-name">William Chang</h1>
+          <p class="hero-bio">
+            Passionate Computer Science student at Columbia University with a focus on
+            electrical engineering, computer systems, and machine learning. Hands-on
+            experience with computer vision, reward functions, and model optimisation
+            across research, robotics, and game development.
+          </p>
+
+          <div class="hero-actions">
+            <a href="resume.pdf" class="hero-btn hero-btn--primary" download="William_Chang_Resume.pdf">
+              <i class="bi-download"></i> Resume
+            </a>
+            <a href="#section_experience" class="hero-btn hero-btn--outline">
+              <i class="bi-briefcase"></i> Experience
+            </a>
+          </div>
+
+          <div class="hero-social">
+            <span class="hero-social-label">Find me on</span>
+            <a href="mailto:williamjchang2007@gmail.com" class="hero-social-link" title="Email">
+              <i class="bi-envelope"></i>
+            </a>
+            <a href="https://github.com/Windyvern73" class="hero-social-link" title="GitHub" target="_blank" rel="noopener">
+              <i class="bi-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/william-chang-0a70302bb" class="hero-social-link" title="LinkedIn" target="_blank" rel="noopener">
+              <i class="bi-linkedin"></i>
+            </a>
+            <a href="tel:+16262417295" class="hero-social-link" title="Phone">
+              <i class="bi-telephone"></i>
+            </a>
+          </div>
+          
+          <div class="hero-contact-card">
+            <h4>Get in Touch</h4>
+
+            <div class="hero-contact-row">
+              <div class="hero-contact-icon"><i class="bi-envelope"></i></div>
+              <div>
+                <p class="hero-contact-label">Email</p>
+                <a href="mailto:williamjchang2007@gmail.com" class="hero-contact-value">
+                  williamjchang2007@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-contact-row">
+              <div class="hero-contact-icon"><i class="bi-telephone"></i></div>
+              <div>
+                <p class="hero-contact-label">Phone</p>
+                <a href="tel:+16262417295" class="hero-contact-value">
+                  (626) 241-7295
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-contact-row">
+              <div class="hero-contact-icon"><i class="bi-geo-alt"></i></div>
+              <div>
+                <p class="hero-contact-label">Location</p>
+                <a href="https://www.google.com/maps/place/1045+Park+Spring+Ln,+Diamond+Bar,+CA+91765/@34.0038723,-117.8102106,16z/data=!3m1!4b1!4m6!3m5!1s0x80c32cf32ae7b147:0xa050793fdcd31340!8m2!3d34.0038679!4d-117.8076303!16s%2Fg%2F11c28gm0k2?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="hero-contact-value">
+                  1045 Park Spring Lane, Diamond Bar, CA 91765
+                </a>
+              </div>
+            </div>
+
+            <hr class="hero-contact-divider">
+
+            <div class="hero-contact-row mb-0">
+              <div class="hero-contact-icon"><i class="bi-mortarboard"></i></div>
+              <div>
+                <p class="hero-contact-label">Education</p>
+                <a href="https://www.columbia.edu" target="_blank" class="hero-contact-value">
+                  Columbia University, B.S. CS · 2029
+                </a>
+              </div>
+            </div>
+            </div>
+
+        </div>
+
+        <!-- Right — portrait-->
+        <div class="col-lg-5 col-12">
+          <img src="images/portrait.png" alt="William Chang"
+               class="hero-portrait d-none d-lg-block">
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════
+       ABOUT & SKILLS
+  ══════════════════════════════════ -->
+  <section class="about-section" id="section_about">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+
+        <!-- Left — about text + education -->
+        <div class="col-lg-5 col-12">
+          <p class="about-section-label">Background</p>
+          <h2 class="about-section-title">About Me</h2>
+          <div class="about-bar"></div>
+
+          <p class="about-body">
+            I'm a first-year Computer Science student at Columbia University, Class of 2029,
+            with a broad interest in the intersection of hardware and intelligent software.
+            Whether it's training CNNs for exoplanet detection, building autonomous vehicles,
+            or designing electronics for environmental buoys, I gravitate toward projects
+            where code meets the physical world.
+          </p>
+          <p class="about-body">
+            Outside of coursework I'm active in CU Robotics (AQUAS), the CU Airplane Club,
+            and CU Game Development — and I've previously taught AI and leadership to students
+            across the US and Taiwan.
+          </p>
+
+          <div class="edu-card">
+            <p class="edu-card-school">Columbia University</p>
+            <p class="edu-card-degree">B.S. Computer Science · New York, NY</p>
+            <p class="edu-card-year">Class of 2029</p>
+          </div>
+        </div>
+
+        <!-- Right — skills -->
+        <div class="col-lg-7 col-12">
+          <p class="about-section-label">Toolkit</p>
+          <h2 class="about-section-title">Skills</h2>
+          <div class="about-bar"></div>
+
+          <div class="skill-group">
+            <p class="skill-group-label">Languages</p>
+            <div class="skill-pills">
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">C</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <p class="skill-group-label">Hardware</p>
+            <div class="skill-pills">
+              <span class="skill-pill">Arduino</span>
+              <span class="skill-pill">ESP32</span>
+              <span class="skill-pill">Soldering</span>
+              <span class="skill-pill">Circuit Design</span>
+              <span class="skill-pill">CAD (Fusion360)</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <p class="skill-group-label">Software & Frameworks</p>
+            <div class="skill-pills">
+              <span class="skill-pill">Unity</span>
+              <span class="skill-pill">Pandas</span>
+              <span class="skill-pill">NumPy</span>
+              <span class="skill-pill">ROS</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <p class="skill-group-label">AI / ML</p>
+            <div class="skill-pills">
+              <span class="skill-pill">PyTorch</span>
+              <span class="skill-pill">TensorFlow</span>
+              <span class="skill-pill">Computer Vision</span>
+              <span class="skill-pill">CNNs</span>
+              <span class="skill-pill">YOLOv8</span>
+              <span class="skill-pill">MIDAS</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════
+       EXPERIENCE CARDS
+  ══════════════════════════════════ -->
+  <section class="experience-section section-padding" id="section_experience">
+    <div class="container">
+
+      <div class="row mb-5">
+        <div class="col-12">
+          <h2 class="experience-heading">Experience</h2>
+          <div class="experience-heading-bar"></div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- ── Entry 1 — UCLA ── -->
+        <div class="col-lg-6 col-12">
+          <a href="UCLA.html" class="exp-card-link">
+            <div class="exp-card">
+              <div class="exp-card-img-wrap">
+                <img src="images/UCLA/campus.png" alt="UCLA AI Research" class="exp-card-img">
+                <span class="exp-badge">Research</span>
+              </div>
+              <div class="exp-card-body">
+                <div class="exp-meta">
+                  <span class="exp-org">UCLA Elegant Mind Club</span>
+                  <span class="exp-date">Summer 2024</span>
                 </div>
-            </nav>
+                <h5 class="exp-title">AI Researcher</h5>
+                <p class="exp-desc">
+                  Worked alongside PhD candidates to develop a camera-reliant autonomous vehicle
+                  learning system using YOLOv8 and MIDAS. Helped pair real-time depth sensation
+                  and object detection with motor control to design a prototype autonomous driving model.
+                </p>
+                <ul class="exp-tags">
+                  <li>Computer Vision</li>
+                  <li>Arduino</li>
+                  <li>Python</li>
+                </ul>
+              </div>
+            </div>
+          </a>
+        </div>
 
-            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-6 col-12">
-                            <h2 class="mb-4">About Me</h2>
-                        </div>
-
-                        <div class="clearfix"></div>
-
-                        <div class="col-lg-3 col-4">
-                            <img src="images/portrait.png" class="img-fluid" alt="Portrait" width="300px">
-                        </div>
-
-                        <div class="col-lg-7 col-8 m-auto">
-                            <div class="accordion" id="accordionExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Who Am I?
-                                        </button>
-                                    </h2>
-
-                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Passionate <Strong>Computer Science</Strong> student at <Strong>Columbia University</Strong> with a focus on <Strong>electrical engineering</Strong>, <Strong>computer systems</Strong>, and <Strong>machine learning</Strong>. Programming experience in Python, Java, C, and Unity. Hands-on experience with computer vision, reward functions, and model optimization.
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Education
-                                    </button>
-                                    </h2>
-
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <Strong>Columbia University — B.S. Computer Science</Strong>, Class of 2029 in New York, NY
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+        <!-- ── Entry 2 — AQUAS ── -->
+        <div class="col-lg-6 col-12">
+          <a href="AQUAS.html" class="exp-card-link">
+            <div class="exp-card">
+              <div class="exp-card-img-wrap">
+                <img src="images/AQUAS/buoy.png" alt="AQUAS Robotics Club" class="exp-card-img">
+                <span class="exp-badge">Engineering</span>
+              </div>
+              <div class="exp-card-body">
+                <div class="exp-meta">
+                  <span class="exp-org">Columbia Robotics</span>
+                  <span class="exp-date">Sept 2025 – Present</span>
                 </div>
-            </section>
+                <h5 class="exp-title">Electrical &amp; Software Developer</h5>
+                <p class="exp-desc">
+                  Developing algae-bloom clearing buoys for New York waterways as part of the
+                  Aquas Initiative. Designing onboard electronics and writing Arduino firmware
+                  to collect environmental sensor data and transmit it wirelessly via IoT SIM modules.
+                </p>
+                <ul class="exp-tags">
+                  <li>Arduino</li>
+                  <li>IoT</li>
+                  <li>CAD (Fusion 360)</li>
+                  <li>Circuits</li>
+                </ul>
+              </div>
+            </div>
+          </a>
+        </div>
 
-
-            <section class="featured-section">
-                <div class="container">
-                    <div class="row justify-content-center">
-
-                        <div class="col-lg-4 col-12 mb-4 mb-lg-0">
-                            <div class="custom-block bg-white shadow-lg">
-                                    <div class="d-flex">
-                                        <div>
-                                            <h5 class="mb-2">Skills</h5>
-                                            <p style="font-size: 1.3rem; color: purple; font-weight: 200;">
-                                            <Strong>Languages</Strong>: Python, Java, C, C++<br><br>
-                                            <Strong>Hardware</Strong>: Soldering, CAD, Arduino integration, circuit design<br><br>
-                                            <Strong>Software</Strong>: Fusion360, Unity, Pandas, NumPy<br><br>
-                                            <Strong>AI/ML</Strong>: Pytorch, TensorFlow, Computer Vision, CNNs
-                                            </p>
-                                        </div>
-
-                                        <span class="badge bg-design rounded-pill ms-auto">15+</span>
-                                    </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-12">
-                            <div class="custom-block custom-block-overlay">
-                                <div class="d-flex flex-column h-100">
-                                    <!--<img src="images/businesswoman-using-tablet-analysis.jpg" class="custom-block-image img-fluid" alt="">-->
-
-                                    <div class="custom-block-overlay-text d-flex">
-                                        <div>
-                                            <h5 class="text-white mb-lg-2 mb-2">Interested?</h5>
-
-                                            <p class="text-white mb-1">Learn more about me</p>
-
-                                            <a href="/resume.pdf" class="btn custom-btn mt-1 mt-lg-3" download="William_Chang_Resume.pdf">My Resume</a>
-
-                                            <p class="text-white mt-3 mt-lg-4 mb-3">Address: 1045 Park Spring Lane, CA 91765</p>
-
-                                            <p class="d-flex align-items-center mb-3">
-                                                <span class="text-white me-2">Phone:</span>
-
-                                                <a href="tel: +1626-241-7295" class="site-footer-link">
-                                                    626-241-7295
-                                                </a>
-                                            </p>
-                                            <p class="d-flex align-items-center mb-0">
-                                                <span class="text-white me-2">Email:</span>
-
-                                                <a href="mailto:williamjchang2007@gmail.com" class="site-footer-link">
-                                                    williamjchang2007@gmail.com
-                                                </a>
-                                            </p>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="social-share d-flex mt-0">
-                                        <p class="text-white me-4">Contact Me:</p>
-
-                                        <ul class="social-icon">
-                                            <li class="social-icon-item">
-                                                <a href="mailto:williamjchang2007@gmail.com" class="social-icon-link bi-envelope"></a>
-                                            </li>
-
-                                            <li class="social-icon-item">
-                                                <a href="https://github.com/Windyvern73" class="social-icon-link bi-github"></a>
-                                            </li>
-
-                                            <li class="social-icon-item">
-                                                <a href="https://linkedin.com/in/william-chang-0a70302bb" class="social-icon-link bi-linkedin"></a>
-                                            </li>
-                                            <li class="social-icon-item">
-                                                <a href="tel:+16262417295" class="social-icon-link bi-telephone"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="section-overlay"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+        <!-- ── Entry 3 — Airplane Club ── -->
+        <div class="col-lg-6 col-12">
+          <a href="CUAC.html" class="exp-card-link">
+            <div class="exp-card">
+              <div class="exp-card-img-wrap">
+                <img src="images/CUAC/plane_design.png" alt="Airplane Club" class="exp-card-img">
+                <span class="exp-badge">Engineering</span>
+              </div>
+              <div class="exp-card-body">
+                <div class="exp-meta">
+                  <span class="exp-org">Columbia Airplanes</span>
+                  <span class="exp-date">Sept 2025 – Present</span>
                 </div>
-            </section>
+                <h5 class="exp-title">Mechanical &amp; Electrical Engineer</h5>
+                <p class="exp-desc">
+                  Designing and building motor-powered components for the AIAA competition plane.
+                  Used Fusion360 to design a banner release mechanism and fuse-holder, bridging
+                  mechanical CAD with hands-on fabrication.
+                </p>
+                <ul class="exp-tags">
+                  <li>CAD (Fusion 360)</li>
+                  <li>Soldering</li>
+                  <li>Monocoating</li>
+                  <li>Woodworking</li>
+                </ul>
+              </div>
+            </div>
+          </a>
+        </div>
 
-<!--
-            <section class="explore-section section-padding" id="section_2">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-12 text-center">
-                            <h2 class="mb-4">Browse Topics</h1>
-                        </div>
-
-                    </div>
+        <!-- ── Entry 4 — Game Dev ── -->
+        <div class="col-lg-6 col-12 d-flex">
+          <a href="https://yapples.itch.io/elemental" class="exp-card-link" target="_blank" rel="noopener">
+            <div class="exp-card">
+              <div class="exp-card-img-wrap">
+                <img src="images/Game_Dev/title.png" alt="CU Game Development" class="exp-card-img">
+                <span class="exp-badge">Game Dev</span>
+              </div>
+              <div class="exp-card-body">
+                <div class="exp-meta">
+                  <span class="exp-org">Columbia Game Development</span>
+                  <span class="exp-date">Oct 2025 – Present</span>
                 </div>
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">Design</button>
-                            </li>
-
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="marketing-tab" data-bs-toggle="tab" data-bs-target="#marketing-tab-pane" type="button" role="tab" aria-controls="marketing-tab-pane" aria-selected="false">Marketing</button>
-                            </li>
-
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane" type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Finance</button>
-                            </li>
-
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music-tab-pane" type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">Music</button>
-                            </li>
-
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education-tab-pane" type="button" role="tab" aria-controls="education-tab-pane" aria-selected="false">Education</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-12">
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
-                                            <div class="custom-block bg-white shadow-lg">
-                                                <a href="topics-detail.html">
-                                                    <div class="d-flex">
-                                                        <div>
-                                                            <h5 class="mb-2">Web Design</h5>
-
-                                                            <p class="mb-0">Topic Listing Template based on Bootstrap 5</p>
-                                                        </div>
-
-                                                        <span class="badge bg-design rounded-pill ms-auto">14</span>
-                                                    </div>
-
-                                                    <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
-                                            <div class="custom-block bg-white shadow-lg">
-                                                <a href="topics-detail.html">
-                                                    <div class="d-flex">
-                                                        <div>
-                                                            <h5 class="mb-2">Graphic</h5>
-
-                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                        </div>
-
-                                                        <span class="badge bg-design rounded-pill ms-auto">75</span>
-                                                    </div>
-
-                                                    <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-6 col-12">
-                                            <div class="custom-block bg-white shadow-lg">
-                                                <a href="topics-detail.html">
-                                                    <div class="d-flex">
-                                                        <div>
-                                                            <h5 class="mb-2">Logo Design</h5>
-
-                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                        </div>
-
-                                                        <span class="badge bg-design rounded-pill ms-auto">100</span>
-                                                    </div>
-
-                                                    <img src="images/topics/colleagues-working-cozy-office-medium-shot.png" class="custom-block-image img-fluid" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane fade" id="marketing-tab-pane" role="tabpanel" aria-labelledby="marketing-tab" tabindex="0">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                                <div class="custom-block bg-white shadow-lg">
-                                                    <a href="topics-detail.html">
-                                                        <div class="d-flex">
-                                                            <div>
-                                                                <h5 class="mb-2">Advertising</h5>
-
-                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                            </div>
-
-                                                            <span class="badge bg-advertising rounded-pill ms-auto">30</span>
-                                                        </div>
-
-                                                        <img src="images/topics/undraw_online_ad_re_ol62.png" class="custom-block-image img-fluid" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                                <div class="custom-block bg-white shadow-lg">
-                                                    <a href="topics-detail.html">
-                                                        <div class="d-flex">
-                                                            <div>
-                                                                <h5 class="mb-2">Video Content</h5>
-
-                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                            </div>
-
-                                                            <span class="badge bg-advertising rounded-pill ms-auto">65</span>
-                                                        </div>
-
-                                                        <img src="images/topics/undraw_Group_video_re_btu7.png" class="custom-block-image img-fluid" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-4 col-md-6 col-12">
-                                                <div class="custom-block bg-white shadow-lg">
-                                                    <a href="topics-detail.html">
-                                                        <div class="d-flex">
-                                                            <div>
-                                                                <h5 class="mb-2">Viral Tweet</h5>
-
-                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                            </div>
-
-                                                            <span class="badge bg-advertising rounded-pill ms-auto">50</span>
-                                                        </div>
-
-                                                        <img src="images/topics/undraw_viral_tweet_gndb.png" class="custom-block-image img-fluid" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                  </div>
-
-                                <div class="tab-pane fade" id="finance-tab-pane" role="tabpanel" aria-labelledby="finance-tab" tabindex="0">   <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-0">
-                                            <div class="custom-block bg-white shadow-lg">
-                                                <a href="topics-detail.html">
-                                                    <div class="d-flex">
-                                                        <div>
-                                                            <h5 class="mb-2">Investment</h5>
-
-                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                        </div>
-
-                                                        <span class="badge bg-finance rounded-pill ms-auto">30</span>
-                                                    </div>
-
-                                                    <img src="images/topics/undraw_Finance_re_gnv2.png" class="custom-block-image img-fluid" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-md-6 col-12">
-                                            <div class="custom-block custom-block-overlay">
-                                                <div class="d-flex flex-column h-100">
-                                                    <img src="images/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room.jpg" class="custom-block-image img-fluid" alt="">
-
-                                                    <div class="custom-block-overlay-text d-flex">
-                                                        <div>
-                                                            <h5 class="text-white mb-2">Finance</h5>
-
-                                                            <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint animi necessitatibus aperiam repudiandae nam omnis</p>
-
-                                                            <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
-                                                        </div>
-
-                                                        <span class="badge bg-finance rounded-pill ms-auto">25</span>
-                                                    </div>
-
-                                                    <div class="social-share d-flex">
-                                                        <p class="text-white me-4">Share:</p>
-
-                                                        <ul class="social-icon">
-                                                            <li class="social-icon-item">
-                                                                <a href="#" class="social-icon-link bi-twitter"></a>
-                                                            </li>
-
-                                                            <li class="social-icon-item">
-                                                                <a href="#" class="social-icon-link bi-facebook"></a>
-                                                            </li>
-
-                                                            <li class="social-icon-item">
-                                                                <a href="#" class="social-icon-link bi-pinterest"></a>
-                                                            </li>
-                                                        </ul>
-
-                                                        <a href="#" class="custom-icon bi-bookmark ms-auto"></a>
-                                                    </div>
-
-                                                    <div class="section-overlay"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane fade" id="music-tab-pane" role="tabpanel" aria-labelledby="music-tab" tabindex="0">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                            <div class="custom-block bg-white shadow-lg">
-                                                <a href="topics-detail.html">
-                                                    <div class="d-flex">
-                                                        <div>
-                                                            <h5 class="mb-2">Composing Song</h5>
-
-                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                        </div>
-
-                                                        <span class="badge bg-music rounded-pill ms-auto">45</span>
-                                                    </div>
-
-                                                    <img src="images/topics/undraw_Compose_music_re_wpiw.png" class="custom-block-image img-fluid" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                            <div class="custom-block bg-white shadow-lg">
-                                                <a href="topics-detail.html">
-                                                    <div class="d-flex">
-                                                        <div>
-                                                            <h5 class="mb-2">Online Music</h5>
-
-                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                        </div>
-
-                                                        <span class="badge bg-music rounded-pill ms-auto">45</span>
-                                                    </div>
-
-                                                    <img src="images/topics/undraw_happy_music_g6wc.png" class="custom-block-image img-fluid" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-6 col-12">
-                                            <div class="custom-block bg-white shadow-lg">
-                                                <a href="topics-detail.html">
-                                                    <div class="d-flex">
-                                                        <div>
-                                                            <h5 class="mb-2">Podcast</h5>
-
-                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                        </div>
-
-                                                        <span class="badge bg-music rounded-pill ms-auto">20</span>
-                                                    </div>
-
-                                                    <img src="images/topics/undraw_Podcast_audience_re_4i5q.png" class="custom-block-image img-fluid" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane fade" id="education-tab-pane" role="tabpanel" aria-labelledby="education-tab" tabindex="0">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-3">
-                                            <div class="custom-block bg-white shadow-lg">
-                                                <a href="topics-detail.html">
-                                                    <div class="d-flex">
-                                                        <div>
-                                                            <h5 class="mb-2">Graduation</h5>
-
-                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                        </div>
-
-                                                        <span class="badge bg-education rounded-pill ms-auto">80</span>
-                                                    </div>
-
-                                                    <img src="images/topics/undraw_Graduation_re_gthn.png" class="custom-block-image img-fluid" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-md-6 col-12">
-                                            <div class="custom-block bg-white shadow-lg">
-                                                <a href="topics-detail.html">
-                                                    <div class="d-flex">
-                                                        <div>
-                                                            <h5 class="mb-2">Educator</h5>
-
-                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                        </div>
-
-                                                        <span class="badge bg-education rounded-pill ms-auto">75</span>
-                                                    </div>
-
-                                                    <img src="images/topics/undraw_Educator_re_ju47.png" class="custom-block-image img-fluid" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                    </div>
-                </div>
-            </section>
-
-
-            <section class="timeline-section section-padding" id="section_3">
-                <div class="section-overlay"></div>
-
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-12 text-center">
-                            <h2 class="text-white mb-4">How does it work?</h1>
-                        </div>
-
-                        <div class="col-lg-10 col-12 mx-auto">
-                            <div class="timeline-container">
-                                <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
-                                    <div class="list-progress">
-                                        <div class="inner"></div>
-                                    </div>
-
-                                    <li>
-                                        <h4 class="text-white mb-3">Search your favourite topic</h4>
-
-                                        <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, cumque magnam? Sequi, cupiditate quibusdam alias illum sed esse ad dignissimos libero sunt, quisquam numquam aliquam? Voluptas, accusamus omnis?</p>
-
-                                        <div class="icon-holder">
-                                          <i class="bi-search"></i>
-                                        </div>
-                                    </li>
-                                    
-                                    <li>
-                                        <h4 class="text-white mb-3">Bookmark &amp; Keep it for yourself</h4>
-
-                                        <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint animi necessitatibus aperiam repudiandae nam omnis est vel quo, nihil repellat quia velit error modi earum similique odit labore. Doloremque, repudiandae?</p>
-
-                                        <div class="icon-holder">
-                                          <i class="bi-bookmark"></i>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <h4 class="text-white mb-3">Read &amp; Enjoy</h4>
-
-                                        <p class="text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi vero quisquam, rem assumenda similique voluptas distinctio, iste est hic eveniet debitis ut ducimus beatae id? Quam culpa deleniti officiis autem?</p>
-
-                                        <div class="icon-holder">
-                                          <i class="bi-book"></i>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-12 text-center mt-5">
-                            <p class="text-white">
-                                Want to learn more?
-                                <a href="#" class="btn custom-btn custom-border-btn ms-3">Check out Youtube</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-            <section class="faq-section section-padding" id="section_4">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-6 col-12">
-                            <h2 class="mb-4">Frequently Asked Questions</h2>
-                        </div>
-
-                        <div class="clearfix"></div>
-
-                        <div class="col-lg-5 col-12">
-                            <img src="images/faq_graphic.jpg" class="img-fluid" alt="FAQs">
-                        </div>
-
-                        <div class="col-lg-6 col-12 m-auto">
-                            <div class="accordion" id="accordionExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        What is Topic Listing?
-                                        </button>
-                                    </h2>
-
-                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Topic Listing is free Bootstrap 5 CSS template. <strong>You are not allowed to redistribute this template</strong> on any other template collection website without our permission. Please contact TemplateMo for more detail. Thank you.
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        How to find a topic?
-                                    </button>
-                                    </h2>
-
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            You can search on Google with <strong>keywords</strong> such as templatemo portfolio, templatemo one-page layouts, photography, digital marketing, etc.
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Does it need to paid?
-                                    </button>
-                                    </h2>
-
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-
-            <section class="contact-section section-padding section-bg" id="section_5">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-12 col-12 text-center">
-                            <h2 class="mb-5">Get in touch</h2>
-                        </div>
-
-                        <div class="col-lg-5 col-12 mb-4 mb-lg-0">
-                            <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2595.065641062665!2d-122.4230416990949!3d37.80335401520422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858127459fabad%3A0x808ba520e5e9edb7!2sFrancisco%20Park!5e1!3m2!1sen!2sth!4v1684340239744!5m2!1sen!2sth" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 col-12 mb-3 mb-lg- mb-md-0 ms-auto">
-                            <h4 class="mb-3">Head office</h4>
-
-                            <p>Bay St &amp;, Larkin St, San Francisco, CA 94109, United States</p>
-
-                            <hr>
-
-                            <p class="d-flex align-items-center mb-1">
-                                <span class="me-2">Phone</span>
-
-                                <a href="tel: 305-240-9671" class="site-footer-link">
-                                    305-240-9671
-                                </a>
-                            </p>
-
-                            <p class="d-flex align-items-center">
-                                <span class="me-2">Email</span>
-
-                                <a href="mailto:info@company.com" class="site-footer-link">
-                                    info@company.com
-                                </a>
-                            </p>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 col-12 mx-auto">
-                            <h4 class="mb-3">Dubai office</h4>
-
-                            <p>Burj Park, Downtown Dubai, United Arab Emirates</p>
-
-                            <hr>
-
-                            <p class="d-flex align-items-center mb-1">
-                                <span class="me-2">Phone</span>
-
-                                <a href="tel: 110-220-3400" class="site-footer-link">
-                                    110-220-3400
-                                </a>
-                            </p>
-
-                            <p class="d-flex align-items-center">
-                                <span class="me-2">Email</span>
-
-                                <a href="mailto:info@company.com" class="site-footer-link">
-                                    info@company.com
-                                </a>
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-        -->
-        </main>
-
-
-        <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/jquery.sticky.js"></script>
-        <script src="js/click-scroll.js"></script>
-        <script src="js/custom.js"></script>
-
-    </body>
+                <h5 class="exp-title">Game Developer</h5>
+                <p class="exp-desc">
+                  Built an action RPG in Unity as part of a 4-person team over a 4-month game
+                  incubator. Implemented puzzles, interactive structures, and world-building scripts.
+                </p>
+                <ul class="exp-tags">
+                  <li>Unity</li>
+                  <li>C#</li>
+                  <li>Game Design</li>
+                  <li>Teamwork</li>
+                </ul>
+                <a href="https://drive.google.com/file/d/1E0Yte2S2sKCF3KnkqJ8uMX0VTa1r25Ph/view?usp=sharing"
+                   class="exp-windows-btn"
+                   target="_blank" rel="noopener"
+                   onclick="event.stopPropagation()">
+                  <i class="bi-windows"></i> Download for Windows
+                </a>
+              </div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 William Chang · Powered by
+      <img src="/images/boba2.png" style="width: 20px;height: 40px">
+      </p>
+    </div>
+  </footer>
+
+</main>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/click-scroll.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
 </html>

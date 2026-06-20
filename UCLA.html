@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="UCLA Elegant Mind Club — William Chang">
+  <meta name="author" content="William Chang">
+
+  <title>UCLA Research — William Chang</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/main-page.css" rel="stylesheet">
+  <link href="css/experience-detail.css" rel="stylesheet">
+  <link rel="icon" href="/fav.ico" type="image/x-icon">
+
+  <style>
+    /* ── Tighten hero spacing to match AQUAS ── */
+    .ed-hero {
+      padding-top: 0;
+      min-height: 340px;
+      align-items: flex-end;
+    }
+
+    .ed-hero-content {
+      padding-top: 108px;
+      padding-bottom: 52px;
+    }
+
+    .ed-back-link {
+      display: inline-flex;
+      margin-bottom: 14px;
+    }
+
+    .ed-hero-badge {
+      display: block;
+      width: fit-content;
+      margin-bottom: 14px;
+    }
+
+    /* ── Subtle section divider dots between overview sections ── */
+    .ed-overview {
+      background-image: radial-gradient(circle, #c5e8ec 1.2px, transparent 1.2px);
+      background-size: 26px 26px;
+    }
+
+    /* ── Slightly warmer stat cards ── */
+    .ed-stat-card {
+      border-left: 3px solid var(--secondary-color);
+      border-radius: 14px;
+    }
+
+    /* ── Gallery: give the section a very light teal tint ── */
+    .ed-gallery {
+      background-color: #f4fbfb;
+    }
+
+    /* ── Milestones: add a thin top accent stripe to each card ── */
+    .ed-milestone {
+      border-top: 3px solid var(--secondary-color);
+      border-radius: 0 0 20px 20px;
+    }
+
+    /* ── Link cards: add left accent bar ── */
+    .ed-link-card {
+      border-left: 3px solid rgba(255,255,255,0.4);
+      transition: border-left-color 0.2s, background 0.25s, transform 0.25s;
+    }
+    .ed-link-card:hover {
+      border-left-color: rgba(255,255,255,0.9);
+    }
+
+    /* ── Footer nav: match primary colour ── */
+    .ed-footer-nav {
+      background-color: var(--primary-color);
+    }
+    .ed-footer-nav .custom-btn {
+      border-color: rgba(255,255,255,0.4);
+      color: #ffffff;
+    }
+    .ed-footer-nav .custom-btn:hover {
+      background: rgba(255,255,255,0.15);
+    }
+  </style>
+</head>
+
+<body>
+<main>
+
+  <!-- ─── NAV ─── -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="logo.png" alt="logo" width="30px">
+        <span>William Chang</span>
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- ─── HERO ─── -->
+  <section class="ed-hero">
+    <div class="ed-hero-overlay"></div>
+    <div class="container ed-hero-content">
+
+      <a href="index.html#section_experience" class="ed-back-link">
+        <i class="bi-arrow-left"></i> Back to Experience
+      </a>
+
+      <span class="ed-hero-badge">Research · Summer 2024</span>
+
+      <h1 class="ed-hero-title">Student Researcher</h1>
+      <p class="ed-hero-org">UCLA Elegant Mind Club · Los Angeles, CA</p>
+
+      <p class="ed-hero-tagline">
+        Building a prototype autonomous car using ML-based depth perception, Arduino motor
+        control, and SLAM — in collaboration with Professor Katsushi Arisaka.
+      </p>
+
+    </div>
+
+    <img src="images/UCLA/campus.png" alt="UCLA Research" class="ed-hero-img">
+  </section>
+
+
+  <!-- ─── OVERVIEW ─── -->
+  <section class="ed-overview section-padding">
+    <div class="container">
+      <div class="row align-items-start g-5">
+
+        <div class="col-lg-7 col-12">
+          <h2 class="ed-section-title">Overview</h2>
+          <div class="ed-section-bar"></div>
+
+          <p class="ed-body-text mt-4">
+            As a Student Researcher with the UCLA Elegant Mind Club in 2024, I worked under
+            Professor Katsushi Arisaka to design and build a fully autonomous ground vehicle.
+            The car used the MIDAS depth-perception model for real-time distance estimation,
+            paired with ultrasonic sensors and onboard object detection to navigate and follow
+            a person without manual control.
+          </p>
+          <p class="ed-body-text">
+            Beyond the autonomous car, I contributed to two additional experiments for
+            Professor Arisaka's research into human sensory perception — building a reaction-time
+            testing rig with the ESP32 to gather psychophysics data, and redesigning the UCLA
+            Physics Department's harmonic oscillation lab experiment using the same
+            microcontroller to modernise data collection.
+          </p>
+          <p class="ed-body-text">
+            The experience deepened my understanding of how computer vision, embedded systems,
+            and robotics intersect — and gave me hands-on exposure to collaborative academic
+            research at the university level.
+          </p>
+        </div>
+
+        <div class="col-lg-5 col-12">
+          <div class="row g-3">
+
+            <div class="col-6">
+              <div class="ed-stat-card">
+                <span class="ed-stat-number">MIDAS</span>
+                <span class="ed-stat-label">Depth perception model</span>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="ed-stat-card">
+                <span class="ed-stat-number">SLAM</span>
+                <span class="ed-stat-label">3D environment mapping</span>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="ed-stat-card">
+                <span class="ed-stat-number">3</span>
+                <span class="ed-stat-label">Experiments built</span>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="ed-stat-card">
+                <span class="ed-stat-number">ESP32</span>
+                <span class="ed-stat-label">Microcontroller platform</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── PHOTO GRID ─── -->
+  <section class="ed-gallery section-padding">
+    <div class="container">
+
+      <h2 class="ed-section-title">Gallery</h2>
+      <div class="ed-section-bar mb-5"></div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-8 col-md-6 col-12">
+          <div class="ed-photo-card ed-photo-card--tall">
+            <img src="images/UCLA/mentor.png" alt="Picture with Prof. Arisaka" class="ed-photo-img">
+            <div class="ed-photo-caption">
+              <p>With my mentor, Professor Katsushi Arisaka</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="ed-photo-card ed-photo-card--tall">
+            <img src="images/UCLA/camera.png" alt="Running MIDAS model" class="ed-photo-img">
+            <div class="ed-photo-caption">
+              <p>Testing the MIDAS depth-perception model to estimate distance in real time</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="ed-photo-card">
+            <img src="images/UCLA/car.png" alt="Autonomous car" class="ed-photo-img">
+            <div class="ed-photo-caption">
+              <p>The autonomous car — trained to follow a person using ultrasonic detection, MIDAS depth sensing, and object detection</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="ed-photo-card">
+            <img src="images/UCLA/reaction_test.png" alt="Reaction test rig" class="ed-photo-img">
+            <div class="ed-photo-caption">
+              <p>ESP32-based reaction-time rig built to collect psychophysics data for Prof. Arisaka's research on human sight sensation</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="ed-photo-card">
+            <img src="images/UCLA/spring.png" alt="Harmonic oscillation experiment" class="ed-photo-img">
+            <div class="ed-photo-caption">
+              <p>Modernising the UCLA Physics Department's harmonic oscillation lab using the ESP32 for digital data collection</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── HIGHLIGHTS ─── -->
+  <section class="ed-milestones section-padding">
+    <div class="container">
+
+      <h2 class="ed-section-title">Highlights</h2>
+      <div class="ed-section-bar mb-5"></div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="ed-milestone">
+            <div class="ed-milestone-icon">
+              <i class="bi-car-front"></i>
+            </div>
+            <h5 class="ed-milestone-title">Autonomous Vehicle</h5>
+            <p class="ed-milestone-desc">
+              Designed and built a prototype autonomous car that uses ML computer vision
+              depth perception (MIDAS) and Arduino motor control to follow a person
+              hands-free.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="ed-milestone">
+            <div class="ed-milestone-icon">
+              <i class="bi-globe"></i>
+            </div>
+            <h5 class="ed-milestone-title">Binocular Disparity & SLAM</h5>
+            <p class="ed-milestone-desc">
+              Collaborated with Prof. Arisaka to explore binocular disparity and 3D
+              environment mapping using SLAM — bridging computer vision theory with
+              real embedded hardware.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="ed-milestone">
+            <div class="ed-milestone-icon">
+              <i class="bi-cpu"></i>
+            </div>
+            <h5 class="ed-milestone-title">ESP32 Experiments</h5>
+            <p class="ed-milestone-desc">
+              Built two independent ESP32-based rigs: a psychophysics reaction-time tester
+              and a modernised harmonic oscillation experiment for the UCLA Physics
+              Department.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── LINKS ─── -->
+  <section class="ed-links-section section-padding">
+    <div class="container">
+
+      <h2 class="ed-section-title text-white">Links &amp; Resources</h2>
+      <div class="ed-section-bar ed-section-bar--white mb-5"></div>
+
+      <div class="row g-3">
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <a href="https://github.com/Elegant-Mind-Club/Robotic-Car" class="ed-link-card" target="_blank" rel="noopener">
+            <i class="bi-github ed-link-icon"></i>
+            <div>
+              <h6 class="ed-link-title">GitHub Repository</h6>
+              <p class="ed-link-desc">Source code for the autonomous car, MIDAS pipeline, and ESP32 experiments.</p>
+            </div>
+            <i class="bi-arrow-up-right ed-link-arrow"></i>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <a href="https://www.elegantmind.org" class="ed-link-card" target="_blank" rel="noopener">
+            <i class="bi-person-video3 ed-link-icon"></i>
+            <div>
+              <h6 class="ed-link-title">UCLA Elegant Mind Club</h6>
+              <p class="ed-link-desc">Learn more about the research group and Professor Arisaka's work.</p>
+            </div>
+            <i class="bi-arrow-up-right ed-link-arrow"></i>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <a href="https://docs.google.com/document/d/12uNKeyRNemHPSswhr4iJ4YiHTbZ8dQQBjzUpseoSnek/edit?usp=sharing" class="ed-link-card" target="_blank" rel="noopener">
+            <i class="bi-file-earmark-text ed-link-icon"></i>
+            <div>
+              <h6 class="ed-link-title">Onboarding Doc</h6>
+              <p class="ed-link-desc">Educational walk-through and readMe to get your own robotic car running</p>
+            </div>
+            <i class="bi-arrow-up-right ed-link-arrow"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FOOTER NAV ─── -->
+  <div class="ed-footer-nav">
+    <div class="container text-center">
+      <a href="index.html#section_experience" class="btn custom-btn">
+        <i class="bi-arrow-left me-2"></i>All Experiences
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>

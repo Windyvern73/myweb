@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AQUAS — William Chang</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/main-page.css" rel="stylesheet">
+  <link rel="icon" href="/fav.ico" type="image/x-icon">
+
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ocean:   #0a2a3a;
+      --deep:    #061c28;
+      --teal:    #00e5c0;
+      --algae:   #4caf50;
+      --foam:    #f0faf8;
+      --sand:    #fffdf5;
+      --text:    #1a3a4a;
+      --muted:   #5a7a8a;
+      --radius:  18px;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--sand);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── Navbar — always solid ── */
+    .navbar {
+      background-color: var(--ocean) !important;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+    }
+    .navbar .navbar-brand span { color: var(--teal) !important; }
+
+    /* ══════════════════════════
+       HERO
+    ══════════════════════════ */
+    .aq-hero {
+      position: relative;
+      min-height: 520px;
+      background: linear-gradient(170deg, var(--deep) 0%, #0d4a6e 55%, #1a7a6e 100%);
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      padding-top: 70px;
+    }
+
+    /* Animated bubble particles */
+    .aq-bubbles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(0,229,192,0.15);
+      border: 1px solid rgba(0,229,192,0.3);
+      animation: rise linear infinite;
+    }
+    .bubble:nth-child(1)  { width:18px; height:18px; left:8%;   animation-duration:7s;  animation-delay:0s;   }
+    .bubble:nth-child(2)  { width:10px; height:10px; left:20%;  animation-duration:9s;  animation-delay:1.5s; }
+    .bubble:nth-child(3)  { width:24px; height:24px; left:35%;  animation-duration:6s;  animation-delay:3s;   }
+    .bubble:nth-child(4)  { width:12px; height:12px; left:52%;  animation-duration:11s; animation-delay:0.5s; }
+    .bubble:nth-child(5)  { width:20px; height:20px; left:67%;  animation-duration:8s;  animation-delay:2s;   }
+    .bubble:nth-child(6)  { width:8px;  height:8px;  left:80%;  animation-duration:10s; animation-delay:4s;   }
+    .bubble:nth-child(7)  { width:16px; height:16px; left:90%;  animation-duration:7.5s;animation-delay:1s;   }
+    .bubble:nth-child(8)  { width:14px; height:14px; left:45%;  animation-duration:12s; animation-delay:5s;   }
+    @keyframes rise {
+      0%   { transform: translateY(110vh) scale(1);   opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 0.6; }
+      100% { transform: translateY(-20px) scale(1.1); opacity: 0; }
+    }
+
+    /* Hero cartoon decorations */
+    .aq-hero-deco {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Hero content */
+    .aq-hero-content {
+      position: relative;
+      z-index: 3;
+      padding: 40px 0 96px;
+    }
+
+    .aq-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.65);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 20px;
+      transition: color 0.2s;
+    }
+    .aq-back-link:hover { color: var(--teal); }
+
+    .aq-hero-badge {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--deep);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 50px;
+      margin-bottom: 18px;
+    }
+
+    .aq-hero-title {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .aq-hero-title span {
+      color: var(--teal);
+    }
+
+    .aq-hero-org {
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 20px;
+    }
+
+    .aq-hero-tagline {
+      font-size: 17px;
+      color: rgba(255,255,255,0.85);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* Wave divider at bottom of hero */
+    .aq-wave {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      position: relative;
+      z-index: 3;
+    }
+    .aq-wave svg { display: block; }
+
+    /* ══════════════════════════
+       ABOUT SECTION
+    ══════════════════════════ */
+    .aq-about {
+      background: var(--sand);
+      padding: 72px 0 60px;
+      position: relative;
+    }
+
+    /* Floating cartoon circuit board — top right */
+    .aq-deco-float {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.12;
+    }
+    .aq-deco-float--tr {
+      top: 20px; right: -30px;
+      width: 260px;
+      animation: float 6s ease-in-out infinite;
+    }
+    .aq-deco-float--bl {
+      bottom: 0; left: -20px;
+      width: 180px;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50%       { transform: translateY(-12px) rotate(2deg); }
+    }
+
+    .aq-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+
+    .aq-section-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--ocean);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .aq-body {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    /* Stat pills */
+    .aq-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .aq-stat {
+      background: var(--foam);
+      border: 1.5px solid rgba(0,229,192,0.35);
+      border-radius: 50px;
+      padding: 10px 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .aq-stat-num {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--ocean);
+    }
+    .aq-stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    /* ══════════════════════════
+       WAVE 2 — into tech section
+    ══════════════════════════ */
+    .aq-wave--algae svg { }
+
+    /* ══════════════════════════
+       TECH SECTION
+    ══════════════════════════ */
+    .aq-tech {
+      background: var(--ocean);
+      padding: 64px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Faint grid lines */
+    .aq-tech::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,229,192,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,192,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .aq-tech > .container { position: relative; z-index: 1; }
+
+    .aq-tech .aq-label { color: var(--teal); }
+    .aq-tech .aq-section-title { color: #ffffff; }
+
+    /* Tech cards */
+    .aq-tech-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(0,229,192,0.2);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+    .aq-tech-card:hover {
+      background: rgba(0,229,192,0.1);
+      border-color: var(--teal);
+      transform: translateY(-4px);
+    }
+
+    .aq-tech-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: rgba(0,229,192,0.15);
+      border: 1px solid rgba(0,229,192,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
+
+    .aq-tech-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .aq-tech-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════
+       LINK SECTION
+    ══════════════════════════ */
+    .aq-link-section {
+      background: var(--foam);
+      padding: 72px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative algae blobs */
+    .aq-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      pointer-events: none;
+    }
+    .aq-blob--1 {
+      width: 400px; height: 400px;
+      background: rgba(76,175,80,0.12);
+      top: -100px; right: -80px;
+    }
+    .aq-blob--2 {
+      width: 300px; height: 300px;
+      background: rgba(0,229,192,0.10);
+      bottom: -80px; left: -60px;
+    }
+
+    .aq-link-section > .container { position: relative; z-index: 1; }
+
+    .aq-cta-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 48px;
+      box-shadow: 0 8px 40px rgba(10,42,58,0.10);
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .aq-cta-text { flex: 1; min-width: 240px; }
+    .aq-cta-text .aq-section-title { margin-bottom: 12px; }
+    .aq-cta-text p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .aq-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--ocean);
+      color: var(--teal);
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 14px 30px;
+      border-radius: 50px;
+      white-space: nowrap;
+      transition: all 0.25s;
+      border: 2px solid transparent;
+    }
+    .aq-cta-btn:hover {
+      background: var(--teal);
+      color: var(--deep);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,229,192,0.35);
+    }
+    .aq-cta-btn i { font-size: 18px; }
+
+    /* ══════════════════════════
+       FOOTER NAV
+    ══════════════════════════ */
+    .aq-footer {
+      background: var(--deep);
+      padding: 32px 0;
+      text-align: center;
+    }
+    .aq-footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .aq-footer-link:hover { color: var(--teal); }
+
+    /* ══════════════════════════
+       RESPONSIVE
+    ══════════════════════════ */
+    @media (max-width: 768px) {
+      .aq-hero { min-height: 420px; }
+      .aq-cta-card { padding: 32px 24px; }
+      .aq-deco-float { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navbar ── -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="logo.png" alt="logo" width="30px">
+      <span>William Chang</span>
+    </a>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════
+     HERO
+══════════════════════════════════ -->
+<section class="aq-hero">
+
+  <!-- Rising bubbles -->
+  <div class="aq-bubbles">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <!-- Cartoon hero decorations -->
+  <div class="aq-hero-deco">
+
+    <!-- Cartoon buoy — right side -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 200"
+         style="position:absolute;right:8%;bottom:60px;width:90px;opacity:0.85;animation:float 5s ease-in-out infinite;">
+      <!-- Buoy body -->
+      <ellipse cx="60" cy="110" rx="36" ry="52" fill="#ff6b35"/>
+      <ellipse cx="60" cy="110" rx="36" ry="52" fill="none" stroke="#cc4a18" stroke-width="2"/>
+      <!-- White stripe -->
+      <rect x="24" y="96" width="72" height="18" rx="4" fill="#ffffff" opacity="0.9"/>
+      <!-- Top dome -->
+      <ellipse cx="60" cy="60" rx="22" ry="18" fill="#ffcc02"/>
+      <ellipse cx="60" cy="60" rx="22" ry="18" fill="none" stroke="#e6a800" stroke-width="2"/>
+      <!-- Antenna -->
+      <line x1="60" y1="42" x2="60" y2="18" stroke="#cccccc" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="60" cy="14" r="5" fill="#00e5c0"/>
+      <!-- Chain -->
+      <line x1="60" y1="162" x2="55" y2="185" stroke="#888" stroke-width="2.5" stroke-dasharray="5,4"/>
+      <!-- Cute face -->
+      <circle cx="50" cy="106" r="3.5" fill="#333"/>
+      <circle cx="70" cy="106" r="3.5" fill="#333"/>
+      <path d="M50 118 Q60 125 70 118" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>
+
+    <!-- Cartoon fish — left mid -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 80"
+         style="position:absolute;left:5%;top:45%;width:80px;opacity:0.7;animation:float 7s ease-in-out infinite 1s;">
+      <!-- Body -->
+      <ellipse cx="70" cy="40" rx="45" ry="26" fill="#00e5c0"/>
+      <!-- Tail -->
+      <polygon points="25,40 5,20 5,60" fill="#00bfa5"/>
+      <!-- Eye -->
+      <circle cx="98" cy="34" r="9" fill="#ffffff"/>
+      <circle cx="100" cy="34" r="5" fill="#0a2a3a"/>
+      <circle cx="102" cy="32" r="2" fill="#ffffff"/>
+      <!-- Mouth -->
+      <path d="M112 42 Q118 46 112 50" stroke="#0a2a3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- Fin -->
+      <path d="M65 14 Q75 28 85 14" fill="#4caf50" opacity="0.85"/>
+      <!-- Stripes -->
+      <line x1="75" y1="15" x2="75" y2="65" stroke="rgba(255,255,255,0.2)" stroke-width="3"/>
+      <line x1="60" y1="16" x2="58" y2="64" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+    </svg>
+
+    <!-- Small algae plant — bottom left -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 120"
+         style="position:absolute;left:22%;bottom:30px;width:55px;opacity:0.65;animation:float 9s ease-in-out infinite 2s;">
+      <line x1="40" y1="110" x2="40" y2="30" stroke="#4caf50" stroke-width="4" stroke-linecap="round"/>
+      <ellipse cx="40" cy="60" rx="22" ry="10" fill="#66bb6a" transform="rotate(-30 40 60)"/>
+      <ellipse cx="40" cy="40" rx="18" ry="8"  fill="#4caf50" transform="rotate(25 40 40)"/>
+      <ellipse cx="40" cy="80" rx="20" ry="9"  fill="#81c784" transform="rotate(-15 40 80)"/>
+    </svg>
+
+    <!-- Tiny Arduino chip — top left -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80"
+         style="position:absolute;left:38%;top:18%;width:64px;opacity:0.55;animation:float 10s ease-in-out infinite 0.5s;">
+      <rect x="10" y="10" width="80" height="60" rx="8" fill="#00979c"/>
+      <rect x="20" y="20" width="60" height="40" rx="4" fill="#006f74"/>
+      <!-- Pins left -->
+      <rect x="2"  y="20" width="8"  height="4" rx="2" fill="#aaaaaa"/>
+      <rect x="2"  y="30" width="8"  height="4" rx="2" fill="#aaaaaa"/>
+      <rect x="2"  y="40" width="8"  height="4" rx="2" fill="#aaaaaa"/>
+      <rect x="2"  y="50" width="8"  height="4" rx="2" fill="#aaaaaa"/>
+      <!-- Pins right -->
+      <rect x="90" y="20" width="8"  height="4" rx="2" fill="#aaaaaa"/>
+      <rect x="90" y="30" width="8"  height="4" rx="2" fill="#aaaaaa"/>
+      <rect x="90" y="40" width="8"  height="4" rx="2" fill="#aaaaaa"/>
+      <rect x="90" y="50" width="8"  height="4" rx="2" fill="#aaaaaa"/>
+      <!-- LED dot -->
+      <circle cx="72" cy="28" r="5" fill="#00e5c0" opacity="0.9"/>
+      <circle cx="72" cy="28" r="3" fill="#ffffff" opacity="0.6"/>
+      <!-- Text label -->
+      <text x="35" y="44" font-family="monospace" font-size="10" fill="rgba(255,255,255,0.7)">UNO</text>
+    </svg>
+
+  </div><!-- /.aq-hero-deco -->
+
+  <div class="container aq-hero-content">
+    <a href="index.html#section_experience" class="aq-back-link">
+      <i class="bi-arrow-left"></i> Back to Experience
+    </a>
+    <div>
+      <span class="aq-hero-badge">🌊 Environmental Tech · 2025–Present</span>
+    </div>
+    <h1 class="aq-hero-title">
+      Electrical &amp; Software<br>Developer — <span>AQUAS</span>
+    </h1>
+    <p class="aq-hero-org">CU Robotics · New York, NY</p>
+    <p class="aq-hero-tagline">
+      Building solar-powered IoT buoys that detect and help clear algae blooms
+      from New York waterways.
+    </p>
+  </div>
+
+  <!-- Wave into next section -->
+  <div class="aq-wave" style="position:absolute;bottom:0;left:0;right:0;z-index:3;">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:80px;">
+      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#fffdf5"/>
+    </svg>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════
+     ABOUT / DESCRIPTION
+══════════════════════════════════ -->
+<section class="aq-about">
+
+  <!-- Decorative faint circuit traces -->
+  <svg class="aq-deco-float aq-deco-float--tr" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <rect x="10"  y="10"  width="180" height="180" rx="12" fill="none" stroke="#00979c" stroke-width="3"/>
+    <rect x="40"  y="40"  width="120" height="120" rx="8"  fill="none" stroke="#00979c" stroke-width="2"/>
+    <circle cx="100" cy="100" r="30" fill="none" stroke="#00979c" stroke-width="2"/>
+    <line x1="10"  y1="100" x2="40"  y2="100" stroke="#00979c" stroke-width="2"/>
+    <line x1="160" y1="100" x2="190" y2="100" stroke="#00979c" stroke-width="2"/>
+    <line x1="100" y1="10"  x2="100" y2="40"  stroke="#00979c" stroke-width="2"/>
+    <line x1="100" y1="160" x2="100" y2="190" stroke="#00979c" stroke-width="2"/>
+    <circle cx="10"  cy="10"  r="5" fill="#00e5c0"/>
+    <circle cx="190" cy="10"  r="5" fill="#00e5c0"/>
+    <circle cx="10"  cy="190" r="5" fill="#4caf50"/>
+    <circle cx="190" cy="190" r="5" fill="#4caf50"/>
+  </svg>
+
+  <!-- Faint algae blob bottom-left -->
+  <svg class="aq-deco-float aq-deco-float--bl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 200">
+    <line x1="70" y1="190" x2="70" y2="60"  stroke="#4caf50" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="70" cy="100" rx="38" ry="16" fill="#66bb6a" transform="rotate(-35 70 100)"/>
+    <ellipse cx="70" cy="70"  rx="30" ry="13" fill="#4caf50" transform="rotate(30 70 70)"/>
+    <ellipse cx="70" cy="130" rx="34" ry="15" fill="#81c784" transform="rotate(-20 70 130)"/>
+    <ellipse cx="70" cy="55"  rx="22" ry="10" fill="#a5d6a7" transform="rotate(15 70 55)"/>
+  </svg>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="row g-5 align-items-start">
+
+      <div class="col-lg-7">
+        <p class="aq-label">About the Project</p>
+        <h2 class="aq-section-title">Clearing New York's waterways, buoy by buoy</h2>
+        <p class="aq-body">
+          AQUAS (Aquatic Quality Unmanned Autonomous Systems) is CU Robotics' environmental
+          initiative to combat harmful algae blooms in New York-area waterways. As an
+          Electrical/Software Developer, I design and build the electronics that power our
+          autonomous surface buoys — from the onboard Arduino microcontrollers to the cellular
+          IoT modules that beam data back to shore.
+        </p>
+        <p class="aq-body">
+          Each buoy carries sensors for water temperature, turbidity, and chlorophyll
+          concentration. The Arduino firmware I wrote handles sensor polling, threshold
+          alerting, and wireless data transmission via SIM-based network transfer — so the
+          team gets live readings from anywhere in the city without being on the water.
+        </p>
+        <p class="aq-body">
+          The project sits at the intersection of environmental science, embedded systems,
+          and IoT networking — exactly the kind of hands-on, real-world engineering I came
+          to Columbia to pursue.
+        </p>
+
+        <div class="aq-stats">
+          <div class="aq-stat">
+            <span class="aq-stat-num">🌊</span>
+            <span class="aq-stat-label">NY-area<br>waterways</span>
+          </div>
+          <div class="aq-stat">
+            <span class="aq-stat-num">IoT</span>
+            <span class="aq-stat-label">SIM-based<br>data transfer</span>
+          </div>
+          <div class="aq-stat">
+            <span class="aq-stat-num">⚡</span>
+            <span class="aq-stat-label">Solar-powered<br>hardware</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Side image placeholder -->
+      <div class="col-lg-5">
+        <div style="border-radius:24px;overflow:hidden;box-shadow:0 8px 40px rgba(10,42,58,0.14);background:linear-gradient(135deg,#0d4a6e,#1a7a6e);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;">
+          <img src="images/AQUAS/buoy.png" alt="AQUAS buoy on the water"
+               style="width:100%;height:100%;object-fit:cover;display:block;"
+               onerror="this.style.display='none'">
+          <!-- Fallback cartoon when no photo -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160" style="width:160px;opacity:0.5;">
+            <!-- Water -->
+            <path d="M0,100 C40,80 80,120 120,100 C160,80 200,120 220,100 L220,160 L0,160Z" fill="rgba(0,229,192,0.3)"/>
+            <!-- Buoy -->
+            <ellipse cx="110" cy="82" rx="28" ry="40" fill="#ff6b35"/>
+            <rect x="82" y="73" width="56" height="14" rx="3" fill="#ffffff" opacity="0.9"/>
+            <ellipse cx="110" cy="46" rx="17" ry="14" fill="#ffcc02"/>
+            <line x1="110" y1="32" x2="110" y2="16" stroke="#ccc" stroke-width="2.5"/>
+            <circle cx="110" cy="12" r="4" fill="#00e5c0"/>
+            <circle cx="100" cy="79" r="3" fill="#333"/>
+            <circle cx="120" cy="79" r="3" fill="#333"/>
+            <path d="M100 89 Q110 95 120 89" stroke="#333" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:10px;">
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Wave into tech section -->
+<div style="background:var(--sand);line-height:0;overflow:hidden;">
+  <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:70px;display:block;">
+    <path d="M0,0 C360,70 1080,0 1440,60 L1440,70 L0,70 Z" fill="#0a2a3a"/>
+  </svg>
+</div>
+
+
+<!-- ══════════════════════════════════
+     TECH STACK
+══════════════════════════════════ -->
+<section class="aq-tech">
+  <div class="container">
+
+    <p class="aq-label">How It's Built</p>
+    <h2 class="aq-section-title" style="color:#fff;margin-bottom:40px;">Tech &amp; Tools</h2>
+
+    <div class="row g-4">
+
+      <div class="col-lg-3 col-md-6">
+        <div class="aq-tech-card">
+          <div class="aq-tech-icon">🔌</div>
+          <h5 class="aq-tech-title">Arduino UNO</h5>
+          <p class="aq-tech-desc">Core microcontroller handling sensor polling, threshold logic, and actuator control on each buoy.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="aq-tech-card">
+          <div class="aq-tech-icon">📡</div>
+          <h5 class="aq-tech-title">IoT / SIM Modules</h5>
+          <p class="aq-tech-desc">Cellular data transfer sends live sensor readings to the AQUAS dashboard without needing Wi-Fi on the water.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="aq-tech-card">
+          <div class="aq-tech-icon">🌿</div>
+          <h5 class="aq-tech-title">Water Sensors</h5>
+          <p class="aq-tech-desc">Temperature, turbidity, and chlorophyll sensors detect bloom conditions in real time.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="aq-tech-card">
+          <div class="aq-tech-icon">☀️</div>
+          <h5 class="aq-tech-title">Solar Power</h5>
+          <p class="aq-tech-desc">Onboard solar panel and battery management keep the buoys running indefinitely without manual recharging.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Wave out of tech section -->
+<div style="background:var(--ocean);line-height:0;overflow:hidden;">
+  <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:70px;display:block;">
+    <path d="M0,60 C360,0 1080,70 1440,10 L1440,70 L0,70 Z" fill="#f0faf8"/>
+  </svg>
+</div>
+
+
+<!-- ══════════════════════════════════
+     LINK / CTA
+══════════════════════════════════ -->
+<section class="aq-link-section">
+  <div class="aq-blob aq-blob--1"></div>
+  <div class="aq-blob aq-blob--2"></div>
+
+  <div class="container">
+    <div class="aq-cta-card">
+
+      <!-- Cartoon wave + buoy illustration -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140"
+           style="width:130px;flex-shrink:0;display:block;" aria-hidden="true">
+        <!-- Water -->
+        <path d="M0,90 C30,72 60,108 90,90 C120,72 150,100 160,88 L160,140 L0,140Z" fill="#b2ebf2"/>
+        <path d="M0,105 C40,88 80,118 120,100 C140,92 155,105 160,100 L160,140 L0,140Z" fill="#80deea" opacity="0.7"/>
+        <!-- Buoy -->
+        <ellipse cx="80" cy="74" rx="22" ry="32" fill="#ff6b35"/>
+        <rect x="58" y="66" width="44" height="12" rx="3" fill="#fff" opacity="0.9"/>
+        <ellipse cx="80" cy="44" rx="14" ry="11" fill="#ffcc02"/>
+        <line x1="80" y1="33" x2="80" y2="18" stroke="#bbb" stroke-width="2"/>
+        <circle cx="80" cy="14" r="4" fill="#00e5c0"/>
+        <circle cx="73" cy="70" r="2.5" fill="#333"/>
+        <circle cx="87" cy="70" r="2.5" fill="#333"/>
+        <path d="M73 79 Q80 85 87 79" stroke="#333" stroke-width="1.5" fill="none"/>
+        <!-- Algae -->
+        <line x1="28" y1="105" x2="28" y2="75" stroke="#4caf50" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="28" cy="85" rx="14" ry="6" fill="#66bb6a" transform="rotate(-30 28 85)"/>
+        <ellipse cx="28" cy="72" rx="11" ry="5" fill="#4caf50" transform="rotate(25 28 72)"/>
+        <!-- Small fish -->
+        <ellipse cx="130" cy="96" rx="14" ry="8" fill="#00e5c0"/>
+        <polygon points="116,96 108,90 108,102" fill="#00bfa5"/>
+        <circle cx="140" cy="93" r="3" fill="#fff"/>
+        <circle cx="141" cy="93" r="1.5" fill="#0a2a3a"/>
+      </svg>
+
+      <div class="aq-cta-text">
+        <p class="aq-label">Project Website</p>
+        <h3 class="aq-section-title" style="font-size:26px;">See AQUAS in action</h3>
+        <p>
+          Visit the official AQUAS project page to learn more about the initiative,
+          see the buoys in the field, and follow our progress cleaning up New York's waterways.
+        </p>
+      </div>
+
+      <a href="https://aquasrobotics.com" class="aq-cta-btn" target="_blank" rel="noopener">
+        <i class="bi-box-arrow-up-right"></i>
+        Visit AQUAS
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Footer nav ── -->
+<div class="aq-footer">
+  <a href="index.html#section_experience" class="aq-footer-link">
+    <i class="bi-arrow-left"></i> All Experiences
+  </a>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>

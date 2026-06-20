@@ -1,0 +1,335 @@
+/*
+  experience-section.css
+  Add to your css/ folder and link in <head>:
+    <link href="css/experience-section.css" rel="stylesheet">
+
+  Relies on templatemo-topic-listing.css variables being loaded first.
+*/
+
+
+/* ─────────────────────────────────────────
+   SECTION HEADING  (white on dark bg)
+───────────────────────────────────────── */
+.experience-heading {
+  font-family: var(--title-font-family);
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--black-color);
+  margin-bottom: 12px;
+}
+
+.experience-heading-bar {
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+
+/* ─────────────────────────────────────────
+   CARD  — extends .custom-block conventions
+   White bg, rounded-medium, shadow, hover lift
+───────────────────────────────────────── */
+.exp-card {
+  background: var(--white-color);
+  border-radius: var(--border-radius-medium);   /* 20px */
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 28px rgba(19, 84, 122, 0.18);
+}
+
+.exp-card:hover {
+  /* Same mint hover background as .custom-block:hover */
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(19, 84, 122, 0.28);
+}
+
+/* When card is hovered, flip description text to dark so it stays readable on mint */
+.exp-card:hover .exp-desc {
+  color: var(--primary-color);
+}
+
+.exp-card:hover .exp-title {
+  color: var(--primary-color);
+}
+
+.exp-card:hover .exp-date {
+  color: var(--primary-color);
+}
+
+.exp-card:hover .exp-tags li {
+  background-color: var(--white-color);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+
+/* ─────────────────────────────────────────
+   IMAGE AREA
+   Same .custom-block-image height & object-fit
+───────────────────────────────────────── */
+.exp-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;           /* matches .custom-block-image height */
+  overflow: hidden;
+  /* Gradient shows when image is missing */
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+
+.exp-card-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.exp-card:hover .exp-card-img {
+  transform: scale(1.04);
+}
+
+
+/* ─────────────────────────────────────────
+   BADGE  — pill label, top-left of image
+   Uses same .rounded-pill / bg-* colours
+───────────────────────────────────────── */
+.exp-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  font-family: var(--title-font-family);
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: var(--border-radius-large);   /* full pill */
+  z-index: 2;
+}
+
+.exp-badge--teal {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+
+/* ─────────────────────────────────────────
+   CARD BODY
+───────────────────────────────────────── */
+.exp-card-body {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Org + date row */
+.exp-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.exp-org {
+  font-family: var(--title-font-family);
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Keep org readable on mint hover background */
+.exp-card:hover .exp-org {
+  color: var(--primary-color);
+}
+
+.exp-date {
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  color: #aab0b5;
+  white-space: nowrap;
+}
+
+/* Card title */
+.exp-title {
+  font-family: var(--title-font-family);
+  font-size: 20px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+/* Description */
+.exp-desc {
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: var(--p-color);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+/* Skill tags — pill style matching the site's badge pattern */
+.exp-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.exp-tags li {
+  font-family: var(--title-font-family);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  color: var(--primary-color);
+  background-color: #e8f5f3;
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--border-radius-large);
+  padding: 3px 12px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media screen and (max-width: 991px) {
+  .experience-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 0 0 80px 80px;
+  }
+
+  .experience-heading {
+    font-size: 36px;
+  }
+
+  .exp-card-img-wrap {
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .experience-heading {
+    font-size: 28px;
+  }
+
+  .exp-card-body {
+    padding: 18px 20px 22px;
+  }
+
+  .exp-meta {
+    flex-direction: column;
+  }
+
+  .exp-title {
+    font-size: 18px;
+  }
+
+  .exp-desc {
+    font-size: 14px;
+  }
+}
+
+
+/* ── Card link wrapper — makes the whole card clickable ── */
+.exp-card-link {
+  display: block;
+  text-decoration: none;
+  height: 100%;
+  cursor: pointer;
+}
+
+.exp-card-link:hover {
+  text-decoration: none;
+}
+
+/* "View details" hint that appears on hover */
+.exp-card-body::after {
+  content: "View details →";
+  display: block;
+  font-family: var(--title-font-family);
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--primary-color);
+  margin-top: 14px;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.exp-card-link:hover .exp-card-body::after {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--primary-color);
+}
+
+/* ── Game Dev card ── */
+.exp-card--gamedev {
+  height: auto;
+}
+
+/* iframe sits inside the image slot and fills it completely */
+.exp-card-img-wrap--itch {
+  padding: 0;
+  overflow: hidden;
+}
+
+.exp-itch-top-iframe {
+  display: block;
+  width: 100%;
+  height: 200px;    /* matches the standard .exp-card-img-wrap height */
+  border: none;
+}
+
+/* Tags sit flush like the other cards — desc's flex:1 pushes them down */
+.exp-card--gamedev .exp-desc {
+  flex: 1;
+}
+
+/* Extra breathing room above the Windows button */
+.exp-windows-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;    /* increased from 14px */
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-family: var(--title-font-family);
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  padding: 9px 20px;
+  border-radius: var(--border-radius-large);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.exp-windows-btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.exp-windows-btn i {
+  font-size: 15px;
+}
+
+.exp-card--gamedev .exp-card-body::after {
+  display: none;
+}
